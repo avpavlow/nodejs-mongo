@@ -14,6 +14,9 @@ require("./models/Categoria")
 const Categoria = mongoose.model("categorias")
 const usuarios = require("./routes/usuario")
 const passport = require("passport")
+const hbshelpers = require('handlebars-helpers');
+const multihelpers = hbshelpers();
+
 require("./config/auth")(passport)
 //Configurações
     //Sessão
@@ -39,8 +42,10 @@ require("./config/auth")(passport)
         app.use(bodyParser.urlencoded({extended:true}))
         app.use(bodyParser.json())
     //handlebars
-        app.engine('handlebars',handlebars({defaultLayout: 'main'}))
+        app.engine('handlebars',handlebars({helpers: multihelpers, defaultLayout: 'main'}))
         app.set('view engine', 'handlebars')
+
+
     //Mongoose
         mongoose.Promise = global.Promise
         mongoose.connect("mongodb://localhost/blogapp")

@@ -5,12 +5,12 @@
 {{#each categorias}}
     <div class="card mt-4">
         <div class="card-body">
-            <h4>{{nome}}</h4>
-            <small>Slug: {{slug}}</small><br>
+            <h4>{{_doc.nome}}</h4>
+            <small>Slug: {{_doc.slug}}</small><br>
             <small>Data de criação: {{date}}</small><br>
-            <a href="/admin/categorias/edit/{{id}}"><button class="btn btn-success mt-4">Editar categoria</button></a>
+            <a href="/admin/categorias/edit/{{_doc._id}}"><button class="btn btn-success mt-4">Editar categoria</button></a>
             <form action="/admin/categoria/deletar" method="POST">
-                <input type="hidden" name="id" value="{{_id}}">
+                <input type="hidden" name="id" value="{{_doc._id}}">
                 <button type="submit" class="btn btn-danger mt-2">Deletar categoria</button>
             </form>
         </div>

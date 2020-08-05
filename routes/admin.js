@@ -1,10 +1,19 @@
+//Загружаем приложение `Express`
 const express = require("express")
+//Создаем роутер
 const router  = express.Router()
+//Загружаем инструменты для работы с БД `Mongoose`
 const mongoose = require("mongoose")
+
+//Загрузка модели категорий
 require("../models/Categoria")
+//Делаем подключение модели к БД
 const Categoria = mongoose.model("categorias")
+//Загрузка моделей почт
 require("../models/Postagem")
+//Делаем подключение модели к БД
 const Postagem = mongoose.model("postagens")
+//Загрузка функции проверки аудентификации
 const {eAdmin} = require("../helpers/eAdmin")
 
 
@@ -17,15 +26,9 @@ router.get('/posts',eAdmin, (req,res) => {
 })
 
 router.get('/categorias',eAdmin, (req, res) => {
-    Categoria.find().sort({date:'desc'})
-    .then((categorias) => {
-        res.render("admin/categorias", {categorias})
-    })
-    .catch((err) => {
-        req.flash("erro_msg", "Houve um erro ao listar as categorias")
-        res.redirect("/admin")
-    })
-    
+    Categoria.find(function (err, categorias){
+          res.render("admin/categorias", {categorias} )
+    }).sort({date:'desc'})
 })
 
 router.get("/categorias/add",eAdmin, (req,res) => {
