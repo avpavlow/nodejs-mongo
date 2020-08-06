@@ -18,15 +18,15 @@ router.post("/registration",(req,res) => {
     if(!req.body.email || typeof req.body.email == undefined || req.body.email == null){
         erros.push({texto: "Неверный адрес электронной почты"})
     }
-    if(!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null){
+    if(!req.body.password || typeof req.body.password == undefined || req.body.password == null){
         erros.push({texto: "Неправильный пароль"})
     }
 
-    if(req.body.senha.length < 4){
+    if(req.body.password.length < 4){
         erros.push({texto:"Пароль слишком короткий"})
     }
 
-    if(req.body.senha != req.body.senha2){
+    if(req.body.password != req.body.password2){
         erros.push({texto: "Пароли разные, попробуйте еще раз"})
     }
 
@@ -47,17 +47,17 @@ router.post("/registration",(req,res) => {
                 const novoUser = new User({
                     name:req.body.name,
                     email: req.body.email,
-                    senha: req.body.senha
+                    password: req.body.password
                 })
 
                 bcrypt.genSalt(10, (erro,salt) => {
-                    bcrypt.hash(novoUser.senha, salt, (erro,hash) => {
+                    bcrypt.hash(novoUser.password, salt, (erro,hash) => {
                         if(erro){
                             req.flash("error_msg", "При сохранении пользователя произошла ошибка")
                             res.redirect("/")
                         }
 
-                        novoUser.senha = hash
+                        novoUser.password = hash
 
                         novoUser.save()
                         .then(() => {

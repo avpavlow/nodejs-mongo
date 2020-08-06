@@ -8,7 +8,7 @@ const User = mongoose.model("users")
 
 module.exports = function(passport){
 
-    passport.use(new localStrategy({usernameField: 'email',passwordField:'senha'}, (email,senha,done) =>{
+    passport.use(new localStrategy({usernameField: 'email',passwordField:'password'}, (email,password,done) =>{
 
         User.findOne({email:email})
         .then((user) => {
@@ -16,7 +16,7 @@ module.exports = function(passport){
                 return done(null,false, {message: "Этот аккаунт не существует"})
             }
 
-            bcrypt.compare(senha, user.senha,(erro,batem) => {
+            bcrypt.compare(password, user.password,(erro,batem) => {
                 if(batem){
                     return done(null,user)
                 }

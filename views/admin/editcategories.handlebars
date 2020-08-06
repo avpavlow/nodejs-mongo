@@ -9,7 +9,7 @@
         <form action="/admin/categories/edit" method="POST">
         <input type="hidden" name="id" value="{{category._doc._id}}" />
             <label for="name">Имя: </label>
-                <input type="text" id="name" name="name" placeholder="Nome da category" class="form-control" value="{{category_doc..name}}">
+                <input type="text" id="name" name="name" placeholder="Nome da category" class="form-control" value="{{category._doc.name}}">
             <label for="slug">Slug: </label>
             <input type="text" id="slug" name="slug" placeholder="Slug da category" class="form-control" value="{{category._doc.slug}}">
             <br>

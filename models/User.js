@@ -10,11 +10,11 @@ const User = new Schema({
         type:String,
         required:true
     },
-    eAdmin:{
+    isAdmin:{
         type: Number,
         default: 1
     },
-    senha:{
+    password:{
         type:String,
         required:true
     }

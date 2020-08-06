@@ -14,25 +14,23 @@ require("../models/Post")
 //Делаем подключение модели к БД
 const Post = mongoose.model("posts")
 //Загрузка функции проверки аудентификации
-const {eAdmin} = require("../helpers/eAdmin")
+const {isAdmin} = require("../helpers/isAdmin")
 
 
-router.get('/',eAdmin,(req, res) => {
+router.get('/',isAdmin,(req, res) => {
     res.render("admin/index")
 })
 
-router.get('/posts',eAdmin, (req,res) => {
-    res.send("<h1>Paginad e post</h1>")
-})
 
-router.get('/categories',eAdmin, (req, res) => {
+
+router.get('/categories',isAdmin, (req, res) => {
     Category.find(function (err, categories){
           res.render("admin/categories", {categories} )
     }).sort({date:'desc'})
 })
 
-router.get("/categories/add",eAdmin, (req,res) => {
-    res.render("admin/addcategorias")
+router.get("/categories/add",isAdmin, (req,res) => {
+    res.render("admin/addcategories")
 })
 
 router.post("/categories/nova", (req,res) => {
@@ -53,7 +51,7 @@ router.post("/categories/nova", (req,res) => {
     }
 
     if(erros.length > 0){
-        res.render("admin/addcategorias", {erros})
+        res.render("admin/addcategories", {erros})
     }
     else{
 
@@ -74,17 +72,17 @@ router.post("/categories/nova", (req,res) => {
     }
 })
 
-router.get("/categories/edit/:id",eAdmin, (req,res) => {
+router.get("/categories/edit/:id",isAdmin, (req,res) => {
     Category.findOne({_id:req.params.id}).then((category) => {
-        res.render("admin/editcategorias",{category})
+        res.render("admin/editcategories",{category})
     }).catch((err) => {
-        req.flash("error_msg", "Esta category não existe")
+        req.flash("error_msg", "Категория не существует")
         res.redirect("/admin/categories")
     })
    
 })
 
-router.post("/categories/edit",eAdmin, (req, res) => {
+router.post("/categories/edit",isAdmin, (req, res) => {
     Category.findOne({_id: req.body.id})
     .then((category) => {
         category.name = req.body.name
@@ -104,7 +102,7 @@ router.post("/categories/edit",eAdmin, (req, res) => {
 
 })
 
-router.post("/category/deletar",eAdmin, (req,res) => {
+router.post("/category/deletar",isAdmin, (req,res) => {
     Category.remove({_id: req.body.id})
     .then(()=>{
         req.flash("success_msg", "Категория успешно удалена")
@@ -116,7 +114,7 @@ router.post("/category/deletar",eAdmin, (req,res) => {
     })
 })
 
-router.get("/posts",eAdmin, (req,res) => {
+router.get("/posts",isAdmin, (req,res) => {
     Post.find().populate("category").sort({data:"desc"})
     .then((posts) => {
         res.render("admin/posts",{posts})
@@ -127,7 +125,7 @@ router.get("/posts",eAdmin, (req,res) => {
     
 })
 
-router.get("/posts/add",eAdmin, (req,res) => {
+router.get("/posts/add",isAdmin, (req,res) => {
     Category.find().then((categories) => {
         res.render("admin/addpostagem",{categories})
     })
@@ -138,7 +136,7 @@ router.get("/posts/add",eAdmin, (req,res) => {
    
 })
 
-router.post("/posts/nova",eAdmin, (req,res) => {
+router.post("/posts/nova",isAdmin, (req,res) => {
     var errors = []
 
     if(req.body.category == "0")
@@ -167,7 +165,7 @@ router.post("/posts/nova",eAdmin, (req,res) => {
     }
 })
 
-router.get("/posts/edit/:id",eAdmin, (req,res) => {
+router.get("/posts/edit/:id",isAdmin, (req,res) => {
 
     Post.findOne({_id:req.params.id})
     .then((post) => {
@@ -185,7 +183,7 @@ router.get("/posts/edit/:id",eAdmin, (req,res) => {
     
 })
 
-router.post("/posts/edit",eAdmin, (req,res) => {
+router.post("/posts/edit",isAdmin, (req,res) => {
     Post.findOne({_id:req.body.id})
     .then((post) => {
         post.title = req.body.title
@@ -210,7 +208,7 @@ router.post("/posts/edit",eAdmin, (req,res) => {
     })
 })
 
-router.get("/posts/deletar/:id",eAdmin,(req,res) => {
+router.get("/posts/deletar/:id",isAdmin,(req,res) => {
     Post.remove({_id:req.params.id})
     .then(() => {
         req.flash("success_msg", "Сообщение успешно удалено!")
