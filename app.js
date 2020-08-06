@@ -8,10 +8,10 @@ const path = require('path')
 const mongoose = require('mongoose')
 const session = require("express-session")
 const flash = require("connect-flash")
-require("./models/Postagem")
-const Postagem = mongoose.model("postagens")
-require("./models/Categoria")
-const Categoria = mongoose.model("categorias")
+require("./models/Post")
+const Post = mongoose.model("posts")
+require("./models/Category")
+const Category = mongoose.model("categories")
 const usuarios = require("./routes/usuario")
 const passport = require("passport")
 const hbshelpers = require('handlebars-helpers');
@@ -61,9 +61,9 @@ require("./config/auth")(passport)
 
 //Rotas
     app.get("/", (req,res) => {
-        Postagem.find().populate("categoria").sort({data:"desc"})
-        .then((postagens) => {
-            res.render("index",{postagens})
+        Post.find().populate("category").sort({data:"desc"})
+        .then((posts) => {
+            res.render("index",{posts})
         })
         .catch((err) => {
             req.flash("error_msg", "Произошла внутренняя ошибка")
@@ -72,11 +72,11 @@ require("./config/auth")(passport)
         
     })
 
-    app.get("/postagem/:slug", (req,res) => {
-        Postagem.findOne({slug:req.params.slug})
-        .then((postagem) => {
-            if(postagem){
-                res.render("postagem/index",{postagem})
+    app.get("/post/:slug", (req,res) => {
+        Post.findOne({slug:req.params.slug})
+        .then((post) => {
+            if(post){
+                res.render("post/index",{post})
             }
             else{
                 req.flash("error_msg", "Этот пост не существует")
@@ -89,21 +89,21 @@ require("./config/auth")(passport)
         })
     })
 
-    app.get("/categorias", (req,res) => {
-        Categoria.find().then((categorias) => {
-            res.render("categorias/index",{categorias})
+    app.get("/categories", (req,res) => {
+        Category.find().then((categories) => {
+            res.render("categories/index",{categories})
         }).catch((err) => {
             req.flash("error_msg", "При перечислении категорий произошла внутренняя ошибка")
             res.redirect("/")
         })
     })
 
-    app.get("/categorias/:slug", (req,res) => {
-        Categoria.findOne({slug:req.params.slug}).then((categoria) => {
-            if(categoria){
-                Postagem.find({categoria: categoria._id})
-                .then((postagens) => {
-                    res.render("categorias/postagens", {postagens,categoria})
+    app.get("/categories/:slug", (req,res) => {
+        Category.findOne({slug:req.params.slug}).then((category) => {
+            if(category){
+                Post.find({category: category._id})
+                .then((posts) => {
+                    res.render("categories/posts", {posts,category})
                 })
                 .catch((err) => {
                     req.flash("error_msg", "При перечислении сообщений произошла ошибка")

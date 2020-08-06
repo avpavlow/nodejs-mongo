@@ -1,12 +1,12 @@
-<h1>{{categoria.nome}}</h1>
-{{#each postagens}}
+<h1>{{category.nome}}</h1>
+{{#each posts}}
 <div class="card mt-4">
     <div class="card-body">
         
         
         <h3>{{titulo}}</h3>
         <p>{{descricao}}</p>
-        <a href="/postagem/{{slug}}"><button class="btn btn-success">Читать далее</button></a>
+        <a href="/post/{{slug}}"><button class="btn btn-success">Читать далее</button></a>
         <hr>
         <small>Дата публикации: {{data}}</small>
         

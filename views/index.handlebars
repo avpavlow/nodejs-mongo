@@ -9,16 +9,16 @@
 <hr>
 <h2>Недавние посты:</h2>
 
-{{#each postagens}}
+{{#each posts}}
 <div class="card mt-4">
     <div class="card-body">
         
         
         <h3>{{titulo}}</h3>
         <p>{{descricao}}</p>
-        <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+        <a href="/post/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
         <hr>
-        <small>Категория: {{categoria.nome}}</small>
+        <small>Категория: {{category.nome}}</small>
         <small>Дата публикации поста: {{data}}</small>
         
     </div>

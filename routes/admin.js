@@ -6,13 +6,13 @@ const router  = express.Router()
 const mongoose = require("mongoose")
 
 //Загрузка модели категорий
-require("../models/Categoria")
+require("../models/Category")
 //Делаем подключение модели к БД
-const Categoria = mongoose.model("categorias")
+const Category = mongoose.model("categories")
 //Загрузка моделей почт
-require("../models/Postagem")
+require("../models/Post")
 //Делаем подключение модели к БД
-const Postagem = mongoose.model("postagens")
+const Post = mongoose.model("posts")
 //Загрузка функции проверки аудентификации
 const {eAdmin} = require("../helpers/eAdmin")
 
@@ -25,17 +25,17 @@ router.get('/posts',eAdmin, (req,res) => {
     res.send("<h1>Paginad e post</h1>")
 })
 
-router.get('/categorias',eAdmin, (req, res) => {
-    Categoria.find(function (err, categorias){
-          res.render("admin/categorias", {categorias} )
+router.get('/categories',eAdmin, (req, res) => {
+    Category.find(function (err, categories){
+          res.render("admin/categories", {categories} )
     }).sort({date:'desc'})
 })
 
-router.get("/categorias/add",eAdmin, (req,res) => {
+router.get("/categories/add",eAdmin, (req,res) => {
     res.render("admin/addcategorias")
 })
 
-router.post("/categorias/nova", (req,res) => {
+router.post("/categories/nova", (req,res) => {
     
     var erros = []
 
@@ -62,10 +62,10 @@ router.post("/categorias/nova", (req,res) => {
             slug: req.body.slug
         }
 
-        new Categoria(novaCategoria).save()
+        new Category(novaCategoria).save()
         .then(() => {
             req.flash("success_msg", "Категория успешно создана")
-            res.redirect("/admin/categorias")
+            res.redirect("/admin/categories")
         })
         .catch((err) => {
             req.flash("error_msg", "При сохранении категории произошла ошибка. Повторите попытку.")
@@ -74,52 +74,52 @@ router.post("/categorias/nova", (req,res) => {
     }
 })
 
-router.get("/categorias/edit/:id",eAdmin, (req,res) => {
-    Categoria.findOne({_id:req.params.id}).then((categoria) => {
-        res.render("admin/editcategorias",{categoria})
+router.get("/categories/edit/:id",eAdmin, (req,res) => {
+    Category.findOne({_id:req.params.id}).then((category) => {
+        res.render("admin/editcategorias",{category})
     }).catch((err) => {
-        req.flash("error_msg", "Esta categoria não existe")
-        res.redirect("/admin/categorias")
+        req.flash("error_msg", "Esta category não existe")
+        res.redirect("/admin/categories")
     })
    
 })
 
-router.post("/categorias/edit",eAdmin, (req, res) => {
-    Categoria.findOne({_id: req.body.id})
-    .then((categoria) => {
-        categoria.nome = req.body.nome
-        categoria.slug = req.body.slug
+router.post("/categories/edit",eAdmin, (req, res) => {
+    Category.findOne({_id: req.body.id})
+    .then((category) => {
+        category.nome = req.body.nome
+        category.slug = req.body.slug
 
-        categoria.save().then(() => {
+        category.save().then(() => {
             req.flash("sucess_msg", "Категория успешно изменена")
-            res.redirect("/admin/categorias")
+            res.redirect("/admin/categories")
         }).catch((err) =>{
             req.flash("error_msg", "произошла ошибка при сохранении выпуска категории")
-            res.redirect("/admin/categorias")
+            res.redirect("/admin/categories")
         })
     }).catch((err) => {
         req.flash("error_msg", "при редактировании категории произошла ошибка")
-        res.redirect("/admin/categorias")
+        res.redirect("/admin/categories")
     })
 
 })
 
-router.post("/categoria/deletar",eAdmin, (req,res) => {
-    Categoria.remove({_id: req.body.id})
+router.post("/category/deletar",eAdmin, (req,res) => {
+    Category.remove({_id: req.body.id})
     .then(()=>{
         req.flash("success_msg", "Категория успешно удалена")
-        res.redirect("/admin/categorias")
+        res.redirect("/admin/categories")
     })
     .catch((err) => {
         req.flash("error_msg", "При удалении категории произошла ошибка")
-        res.redirect("/admin/categorias")
+        res.redirect("/admin/categories")
     })
 })
 
-router.get("/postagens",eAdmin, (req,res) => {
-    Postagem.find().populate("categoria").sort({data:"desc"})
-    .then((postagens) => {
-        res.render("admin/postagens",{postagens})
+router.get("/posts",eAdmin, (req,res) => {
+    Post.find().populate("category").sort({data:"desc"})
+    .then((posts) => {
+        res.render("admin/posts",{posts})
     }).catch((err)  => {
         req.flash("error_msg", "При перечислении сообщений произошла ошибка")
         res.redirect("/admin")
@@ -127,9 +127,9 @@ router.get("/postagens",eAdmin, (req,res) => {
     
 })
 
-router.get("/postagens/add",eAdmin, (req,res) => {
-    Categoria.find().then((categorias) => {
-        res.render("admin/addpostagem",{categorias})
+router.get("/posts/add",eAdmin, (req,res) => {
+    Category.find().then((categories) => {
+        res.render("admin/addpostagem",{categories})
     })
     .catch((err) => {
         req.flash("errror_msg","При загрузке формы произошла ошибка")
@@ -138,10 +138,10 @@ router.get("/postagens/add",eAdmin, (req,res) => {
    
 })
 
-router.post("/postagens/nova",eAdmin, (req,res) => {
+router.post("/posts/nova",eAdmin, (req,res) => {
     var errors = []
 
-    if(req.body.categoria == "0")
+    if(req.body.category == "0")
     {
         errors.push({texto: "Неверная категория зарегистрируйте категорию"})
     }
@@ -153,72 +153,72 @@ router.post("/postagens/nova",eAdmin, (req,res) => {
             titulo: req.body.titulo,
             descricao:req.body.descricao,
             conteudo:req.body.conteudo,
-            categoria: req.body.categoria,
+            category: req.body.category,
             slug: req.body.slug
         }
 
-        new Postagem(novaPostagem).save().then(()=>{
+        new Post(novaPostagem).save().then(()=>{
             req.flash("success_msg", "Сообщение успешно создано")
-            res.redirect("/admin/postagens")
+            res.redirect("/admin/posts")
         }).catch((err) => {
             req.flash("error_msg", "При сохранении публикации произошла ошибка")
-            res.redirect("/admin/postagens")
+            res.redirect("/admin/posts")
         })
     }
 })
 
-router.get("/postagens/edit/:id",eAdmin, (req,res) => {
+router.get("/posts/edit/:id",eAdmin, (req,res) => {
 
-    Postagem.findOne({_id:req.params.id})
-    .then((postagem) => {
-        Categoria.find().then((categorias) => {
-            res.render("admin/editpostagens",{categorias,postagem})
+    Post.findOne({_id:req.params.id})
+    .then((post) => {
+        Category.find().then((categories) => {
+            res.render("admin/editposts",{categories,post})
         }).catch((err) => {
             req.flash("error_msg", "При перечислении категорий произошла ошибка")
-            res.redirect("/admin/postagens")
+            res.redirect("/admin/posts")
         })
     })
     .catch((err) => {
         req.flash("errors_msg", "При редактировании формы произошла ошибка")
-        res.redirect("/admin/postagens")
+        res.redirect("/admin/posts")
     })
     
 })
 
-router.post("/postagens/edit",eAdmin, (req,res) => {
-    Postagem.findOne({_id:req.body.id})
-    .then((postagem) => {
-        postagem.titulo = req.body.titulo
-        postagem.slug = req.body.slug
-        postagem.descricao = req.body.conteudo
-        postagem.conteudo = req.body.conteudo
-        postagem.categoria = req.body.categoria
+router.post("/posts/edit",eAdmin, (req,res) => {
+    Post.findOne({_id:req.body.id})
+    .then((post) => {
+        post.titulo = req.body.titulo
+        post.slug = req.body.slug
+        post.descricao = req.body.conteudo
+        post.conteudo = req.body.conteudo
+        post.category = req.body.category
 
-        postagem.save()
+        post.save()
         .then(() => {
             req.flash("success_msg", "Сообщение успешно отредактировано")
-            res.redirect("/admin/postagens")
+            res.redirect("/admin/posts")
         })
         .catch((err) => {
             req.flash("error_msg", "Внутренняя ошибка")
-            res.redirect("/admin/postagens")
+            res.redirect("/admin/posts")
         })
     })
     .catch((err) => {
         req.flash("error_msg", "При сохранении редактирования произошла ошибка")
-        res.redirect("/admin/postagens")
+        res.redirect("/admin/posts")
     })
 })
 
-router.get("/postagens/deletar/:id",eAdmin,(req,res) => {
-    Postagem.remove({_id:req.params.id})
+router.get("/posts/deletar/:id",eAdmin,(req,res) => {
+    Post.remove({_id:req.params.id})
     .then(() => {
         req.flash("success_msg", "Сообщение успешно удалено!")
-        res.redirect("/admin/postagens")
+        res.redirect("/admin/posts")
     })
     .catch((err) => {
         req.flash("error_msg", "Произошла внутренняя ошибка")
-        res.redirect("/admin/postagens")
+        res.redirect("/admin/posts")
     })
 })
 
