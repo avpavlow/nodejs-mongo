@@ -38,16 +38,16 @@ router.post("/categories/nova", (req,res) => {
     var erros = []
 
     if(!req.body.name || typeof req.body.name == undefined || req.body.name == null){
-        erros.push({texto: "Неправильное имя" })
+        erros.push({text: "Неправильное имя" })
     }
 
     if(!req.body.slug || typeof req.body.slug == undefined || req.body.slug == null)
     {
-        erros.push({texto:"Недействительный slug"})
+        erros.push({text:"Недействительный slug"})
     }
 
     if(req.body.name.length < 2){
-        erros.push({texto: "Название категории слишком маленькое"})
+        erros.push({text: "Название категории слишком маленькое"})
     }
 
     if(erros.length > 0){
@@ -141,7 +141,7 @@ router.post("/posts/nova",isAdmin, (req,res) => {
 
     if(req.body.category == "0")
     {
-        errors.push({texto: "Неверная категория зарегистрируйте категорию"})
+        errors.push({text: "Неверная категория зарегистрируйте категорию"})
     }
     if(errors.length > 0){
         res.render("admin/addpost",{errors})

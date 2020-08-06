@@ -13,21 +13,21 @@ router.get("/registration", (req,res) => {
 router.post("/registration",(req,res) => {
     var erros = []
     if(!req.body.name || typeof req.body.name == undefined || req.body.name == null){
-        erros.push({texto: "Неправильное имя"})
+        erros.push({text: "Неправильное имя"})
     }
     if(!req.body.email || typeof req.body.email == undefined || req.body.email == null){
-        erros.push({texto: "Неверный адрес электронной почты"})
+        erros.push({text: "Неверный адрес электронной почты"})
     }
     if(!req.body.password || typeof req.body.password == undefined || req.body.password == null){
-        erros.push({texto: "Неправильный пароль"})
+        erros.push({text: "Неправильный пароль"})
     }
 
     if(req.body.password.length < 4){
-        erros.push({texto:"Пароль слишком короткий"})
+        erros.push({text:"Пароль слишком короткий"})
     }
 
     if(req.body.password != req.body.password2){
-        erros.push({texto: "Пароли разные, попробуйте еще раз"})
+        erros.push({text: "Пароли разные, попробуйте еще раз"})
     }
 
     if(erros.length > 0){

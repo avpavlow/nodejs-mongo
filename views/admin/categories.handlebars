@@ -7,7 +7,7 @@
         <div class="card-body">
             <h4>{{_doc.name}}</h4>
             <small>Slug: {{_doc.slug}}</small><br>
-            <small>Дата публикации: {{date}}</small><br>
+            <small>Дата публикации: {{_doc.date}}</small><br>
             <a href="/admin/categories/edit/{{_doc._id}}"><button class="btn btn-success mt-4">Редактировать категорию</button></a>
             <form action="/admin/category/deletar" method="POST">
                 <input type="hidden" name="id" value="{{_doc._id}}">
