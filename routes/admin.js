@@ -40,16 +40,16 @@ router.post("/categorias/nova", (req,res) => {
     var erros = []
 
     if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
-        erros.push({texto: "Nome inválido" })
+        erros.push({texto: "Неправильное имя" })
     }
 
     if(!req.body.slug || typeof req.body.slug == undefined || req.body.slug == null)
     {
-        erros.push({texto:"Slug Inválido"})
+        erros.push({texto:"Недействительный slug"})
     }
 
     if(req.body.nome.length < 2){
-        erros.push({texto: "Nome da categoria é muito pequeno"})
+        erros.push({texto: "Название категории слишком маленькое"})
     }
 
     if(erros.length > 0){
@@ -64,11 +64,11 @@ router.post("/categorias/nova", (req,res) => {
 
         new Categoria(novaCategoria).save()
         .then(() => {
-            req.flash("success_msg", "Categoria criada com sucesso")
+            req.flash("success_msg", "Категория успешно создана")
             res.redirect("/admin/categorias")
         })
         .catch((err) => {
-            req.flash("error_msg", "Houve um erro ao salvar a categoria, tente novamente")
+            req.flash("error_msg", "При сохранении категории произошла ошибка. Повторите попытку.")
             res.redirect("/admin")
         })
     }
@@ -91,14 +91,14 @@ router.post("/categorias/edit",eAdmin, (req, res) => {
         categoria.slug = req.body.slug
 
         categoria.save().then(() => {
-            req.flash("sucess_msg", "Categoria editada com sucesso")
+            req.flash("sucess_msg", "Категория успешно изменена")
             res.redirect("/admin/categorias")
         }).catch((err) =>{
-            req.flash("error_msg", "houve um erro ao salvar a edição categoria")
+            req.flash("error_msg", "произошла ошибка при сохранении выпуска категории")
             res.redirect("/admin/categorias")
         })
     }).catch((err) => {
-        req.flash("error_msg", "houve m erro ao editar a categoria")
+        req.flash("error_msg", "при редактировании категории произошла ошибка")
         res.redirect("/admin/categorias")
     })
 
@@ -107,11 +107,11 @@ router.post("/categorias/edit",eAdmin, (req, res) => {
 router.post("/categoria/deletar",eAdmin, (req,res) => {
     Categoria.remove({_id: req.body.id})
     .then(()=>{
-        req.flash("success_msg", "Categoria deletado com sucesso")
+        req.flash("success_msg", "Категория успешно удалена")
         res.redirect("/admin/categorias")
     })
     .catch((err) => {
-        req.flash("error_msg", "Houve um erro ao deletar a categoria")
+        req.flash("error_msg", "При удалении категории произошла ошибка")
         res.redirect("/admin/categorias")
     })
 })
@@ -121,7 +121,7 @@ router.get("/postagens",eAdmin, (req,res) => {
     .then((postagens) => {
         res.render("admin/postagens",{postagens})
     }).catch((err)  => {
-        req.flash("error_msg", "Houve um erro ao listar as postagens")
+        req.flash("error_msg", "При перечислении сообщений произошла ошибка")
         res.redirect("/admin")
     })
     
@@ -132,7 +132,7 @@ router.get("/postagens/add",eAdmin, (req,res) => {
         res.render("admin/addpostagem",{categorias})
     })
     .catch((err) => {
-        req.flash("errror_msg","Houve um erro ao carregar o formulario")
+        req.flash("errror_msg","При загрузке формы произошла ошибка")
         res.redirect("/admin")
     })
    
@@ -143,7 +143,7 @@ router.post("/postagens/nova",eAdmin, (req,res) => {
 
     if(req.body.categoria == "0")
     {
-        errors.push({texto: "Categoria inválida registre uma categoria"})
+        errors.push({texto: "Неверная категория зарегистрируйте категорию"})
     }
     if(errors.length > 0){
         res.render("admin/addpostagem",{errors})
@@ -158,10 +158,10 @@ router.post("/postagens/nova",eAdmin, (req,res) => {
         }
 
         new Postagem(novaPostagem).save().then(()=>{
-            req.flash("success_msg", "Postagem criado com sucesso")
+            req.flash("success_msg", "Сообщение успешно создано")
             res.redirect("/admin/postagens")
         }).catch((err) => {
-            req.flash("error_msg", "Houve um erro durante o salvamento da postagem")
+            req.flash("error_msg", "При сохранении публикации произошла ошибка")
             res.redirect("/admin/postagens")
         })
     }
@@ -174,12 +174,12 @@ router.get("/postagens/edit/:id",eAdmin, (req,res) => {
         Categoria.find().then((categorias) => {
             res.render("admin/editpostagens",{categorias,postagem})
         }).catch((err) => {
-            req.flash("error_msg", "Houve um erro ao listar as categorias")
+            req.flash("error_msg", "При перечислении категорий произошла ошибка")
             res.redirect("/admin/postagens")
         })
     })
     .catch((err) => {
-        req.flash("errors_msg", "Houve um erro ao editar o formulario")
+        req.flash("errors_msg", "При редактировании формы произошла ошибка")
         res.redirect("/admin/postagens")
     })
     
@@ -196,16 +196,16 @@ router.post("/postagens/edit",eAdmin, (req,res) => {
 
         postagem.save()
         .then(() => {
-            req.flash("success_msg", "Postagem editada com sucesso")
+            req.flash("success_msg", "Сообщение успешно отредактировано)
             res.redirect("/admin/postagens")
         })
         .catch((err) => {
-            req.flash("error_msg", "Erro interno")
+            req.flash("error_msg", "Внутренняя ошибка")
             res.redirect("/admin/postagens")
         })
     })
     .catch((err) => {
-        req.flash("error_msg", "Houve um erro ao salvar a edição")
+        req.flash("error_msg", "При сохранении редактирования произошла ошибка")
         res.redirect("/admin/postagens")
     })
 })
@@ -213,11 +213,11 @@ router.post("/postagens/edit",eAdmin, (req,res) => {
 router.get("/postagens/deletar/:id",eAdmin,(req,res) => {
     Postagem.remove({_id:req.params.id})
     .then(() => {
-        req.flash("success_msg", "Postagem deletada com sucesso!")
+        req.flash("success_msg", "Сообщение успешно удалено!")
         res.redirect("/admin/postagens")
     })
     .catch((err) => {
-        req.flash("error_msg", "Houve um erro interno")
+        req.flash("error_msg", "Произошла внутренняя ошибка")
         res.redirect("/admin/postagens")
     })
 })

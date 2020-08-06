@@ -1,13 +1,13 @@
 <div class="jumbotron">
-  <h1 class="display-4">Bem vindo ao Blog do Node</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Crie uma conta</a>
+  <h1 class="display-4">Добро пожаловать в Блог на ноде</h1>
+ <hr class="my-4">
+  <p>
+      Он использует служебные классы для типографики и интервалов для размещения содержимого внутри самого большого контейнера..</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Завести аккаунт</a>
 </div>
 
 <hr>
-<h2>Postagens recentes:</h2>
+<h2>Недавние посты:</h2>
 
 {{#each postagens}}
 <div class="card mt-4">
@@ -18,12 +18,12 @@
         <p>{{descricao}}</p>
         <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
         <hr>
-        <small>Categoria: {{categoria.nome}}</small>
-        <small>Data de publicação: {{data}}</small>
+        <small>Категория: {{categoria.nome}}</small>
+        <small>Дата публикации поста: {{data}}</small>
         
     </div>
 
 </div>
 {{else}}
-    <h5>Nenhuma postagem</h5>
+    <h5>Нет сообщений</h5>
 {{/each}}

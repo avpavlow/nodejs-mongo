@@ -3,11 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="49bbbbed-c3fa-46f4-bfdd-e4f321967a63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/eAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/eAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/usuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/usuario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/addcategorias.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/addcategorias.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/addpostagem.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/addpostagem.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/admin/categorias.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categorias.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/editcategorias.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/editcategorias.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/editpostagens.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/editpostagens.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/index.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/postagens.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/postagens.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categorias/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/categorias/index.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categorias/postagens.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/categorias/postagens.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/postagem/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/postagem/index.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/usuarios/login.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/usuarios/login.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/usuarios/registro.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/usuarios/registro.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +59,7 @@
       <workItem from="1596593918951" duration="11794000" />
       <workItem from="1596635537233" duration="2000000" />
       <workItem from="1596652221651" duration="2849000" />
+      <workItem from="1596688128171" duration="3064000" />
     </task>
     <task id="LOCAL-00001" summary="Добавлены файлы">
       <created>1596273397444</created>
@@ -98,9 +111,9 @@
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
     <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1054@0.0.1920.1054" timestamp="1596459646734" />
-    <state x="652" y="271" width="616" height="512" key="find.popup" timestamp="1596652622439">
+    <state x="652" y="271" width="616" height="570" key="find.popup" timestamp="1596690916403">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
-    <state x="652" y="271" width="616" height="512" key="find.popup/0.0.1920.1054@0.0.1920.1054" timestamp="1596652622439" />
+    <state x="652" y="271" width="616" height="570" key="find.popup/0.0.1920.1054@0.0.1920.1054" timestamp="1596690916403" />
   </component>
 </project>

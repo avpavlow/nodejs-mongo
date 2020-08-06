@@ -13,21 +13,21 @@ router.get("/registro", (req,res) => {
 router.post("/registro",(req,res) => {
     var erros = []
     if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
-        erros.push({texto: "Nome inválido"})
+        erros.push({texto: "Неправильное имя"})
     }
     if(!req.body.email || typeof req.body.email == undefined || req.body.email == null){
-        erros.push({texto: "Email inválido"})
+        erros.push({texto: "Неверный адрес электронной почты"})
     }
     if(!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null){
-        erros.push({texto: "Senha inválida"})
+        erros.push({texto: "Неправильный пароль"})
     }
 
     if(req.body.senha.length < 4){
-        erros.push({texto:"Senha muito curta"})
+        erros.push({texto:"Пароль слишком короткий"})
     }
 
     if(req.body.senha != req.body.senha2){
-        erros.push({texto: "As senhas são diferentes, tente novamente"})
+        erros.push({texto: "Пароли разные, попробуйте еще раз"})
     }
 
     if(erros.length > 0){
@@ -39,7 +39,7 @@ router.post("/registro",(req,res) => {
         .then((usuario) => {
             if(usuario)
             {
-                req.flash("error_msg", "Já existe uma conta com este e-mail no nosso sistema")
+                req.flash("error_msg","В нашей системе уже есть аккаунт с этим адресом электронной почты.")
                 res.redirect("/usuarios/registro")
             }
             else{
@@ -53,7 +53,7 @@ router.post("/registro",(req,res) => {
                 bcrypt.genSalt(10, (erro,salt) => {
                     bcrypt.hash(novoUsuario.senha, salt, (erro,hash) => {
                         if(erro){
-                            req.flash("error_msg", "Houve um erro durante o salvamento do usuario")
+                            req.flash("error_msg", "При сохранении пользователя произошла ошибка")
                             res.redirect("/")
                         }
 
@@ -61,11 +61,11 @@ router.post("/registro",(req,res) => {
 
                         novoUsuario.save()
                         .then(() => {
-                            req.flash("success_msg", "Usuario criado com sucesso!")
+                            req.flash("success_msg", "Пользователь успешно создан!")
                             res.redirect("/")
                         })
                         .catch((err) =>{
-                            req.flash("error_msg", "Houve um erro ao criar o usuario, tente novamente")
+                            req.flash("error_msg", "При создании пользователя произошла ошибка, попробуйте еще раз")
                             res.redirect("/usuarios/registro")
                         })
                     })
@@ -74,7 +74,7 @@ router.post("/registro",(req,res) => {
             }
         })
         .catch((err) => {
-            req.flash("error_msg", "Houve um erro interno")
+            req.flash("error_msg", "Произошла внутренняя ошибка")
             res.redirect("/")
         })
     }
@@ -96,7 +96,7 @@ router.post("/login", (req,res,next) => {
 
 router.get("/logout", (req,res) => {
     req.logout()
-    req.flash("success_msg", "Deslogado com sucesso!")
+    req.flash("success_msg", "Успешный выход из системы!")
     res.redirect("/")
 })
 

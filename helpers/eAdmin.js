@@ -4,7 +4,7 @@ module.exports = {
             return next();
         }
 
-        req.flash("error_msg", "Você precisar sem um Admin!")
+        req.flash("error_msg", "Вам это нужно без админа!")
         res.redirect("/")
     }
 }
