@@ -66,7 +66,7 @@ require("./config/auth")(passport)
             res.render("index",{postagens})
         })
         .catch((err) => {
-            req.flash("error_msg", "Houve um erro interno")
+            req.flash("error_msg", "Произошла внутренняя ошибка")
             res.redirect("/404")
         })
         
@@ -79,12 +79,12 @@ require("./config/auth")(passport)
                 res.render("postagem/index",{postagem})
             }
             else{
-                req.flash("error_msg", "Esta postagem não existe")
+                req.flash("error_msg", "Этот пост не существует")
                 res.redirect("/")
             }
         })
         .catch((err) => {
-            req.flash("error_msg", "Houve um erro interno")
+            req.flash("error_msg", "Произошла внутренняя ошибка")
             res.redirect("/")
         })
     })
@@ -93,7 +93,7 @@ require("./config/auth")(passport)
         Categoria.find().then((categorias) => {
             res.render("categorias/index",{categorias})
         }).catch((err) => {
-            req.flash("error_msg", "Houve um erro interno ao listar as categorias")
+            req.flash("error_msg", "При перечислении категорий произошла внутренняя ошибка")
             res.redirect("/")
         })
     })
@@ -106,17 +106,17 @@ require("./config/auth")(passport)
                     res.render("categorias/postagens", {postagens,categoria})
                 })
                 .catch((err) => {
-                    req.flash("error_msg", "Houve um erro ao listar os posts")
+                    req.flash("error_msg", "При перечислении сообщений произошла ошибка")
                     res.redirect("/")
                 })
             }
             else{
-                req.flash("error_msg", "Essa categoria não existe")
+                req.flash("error_msg", "Эта категория не существует")
                 res.redirect("/")
             }
         })
         .catch((err) => {
-            req.flash("error_msg", "Houve um erro interno ao carregar a pagina desta categoria")
+            req.flash("error_msg", "При загрузке страницы для этой категории произошла внутренняя ошибка")
             res.redirect("/")
         })
     })
@@ -134,5 +134,5 @@ require("./config/auth")(passport)
 //Outros
 const PORT = 8081
 app.listen(PORT, () => {
-    console.log("Servidor Rodando")
+    console.log("Aleksey Pavlov");
 })

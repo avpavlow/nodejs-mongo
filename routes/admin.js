@@ -196,7 +196,7 @@ router.post("/postagens/edit",eAdmin, (req,res) => {
 
         postagem.save()
         .then(() => {
-            req.flash("success_msg", "Сообщение успешно отредактировано)
+            req.flash("success_msg", "Сообщение успешно отредактировано")
             res.redirect("/admin/postagens")
         })
         .catch((err) => {
