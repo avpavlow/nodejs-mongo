@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="49bbbbed-c3fa-46f4-bfdd-e4f321967a63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/addpost.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/addpost.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/categories.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categories.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/editpost.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/editpost.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/post.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/post.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categories/posts.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/posts.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/partials/_navbar.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/_navbar.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596708318422</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Отладка">
+      <created>1596709647490</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1596709647490</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,13 +144,14 @@
     <MESSAGE value="По умолчанию все админы при регистрации" />
     <MESSAGE value="Описание" />
     <MESSAGE value="редактирование шаблона" />
-    <option name="LAST_COMMIT_MESSAGE" value="редактирование шаблона" />
+    <MESSAGE value="Отладка" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отладка" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2" timestamp="1596708318329">
+    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2" timestamp="1596709647428">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
-    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2/0.0.1920.1054@0.0.1920.1054" timestamp="1596708318329" />
+    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2/0.0.1920.1054@0.0.1920.1054" timestamp="1596709647428" />
     <state x="181" y="87" width="1540" height="870" key="DiffContextDialog" timestamp="1596594234258">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
