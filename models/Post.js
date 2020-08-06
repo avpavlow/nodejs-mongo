@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
 const Post = new Schema({
-    titulo: {
+    title: {
         type: String,
         required: true
     },
@@ -14,7 +14,7 @@ const Post = new Schema({
         type: String,
         required: true
     },
-    conteudo:{
+    content:{
         type: String,
         required: true
     },

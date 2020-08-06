@@ -12,7 +12,7 @@ router.get("/registration", (req,res) => {
 
 router.post("/registration",(req,res) => {
     var erros = []
-    if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
+    if(!req.body.name || typeof req.body.name == undefined || req.body.name == null){
         erros.push({texto: "Неправильное имя"})
     }
     if(!req.body.email || typeof req.body.email == undefined || req.body.email == null){
@@ -45,7 +45,7 @@ router.post("/registration",(req,res) => {
             else{
 
                 const novoUser = new User({
-                    nome:req.body.nome,
+                    name:req.body.name,
                     email: req.body.email,
                     senha: req.body.senha
                 })

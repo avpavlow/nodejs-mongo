@@ -5,10 +5,10 @@
 {{#each posts}}
     <div class="card mt-4">
         <div class="card-body">
-            <h4>{{titulo}}</h4>
+            <h4>{{title}}</h4>
             <p>Описание: {{descricao}}</p>
             <small>Дата: {{data}}</small><br>
-            <small>Категория: {{category.nome}}</small><br>
+            <small>Категория: {{category.name}}</small><br>
             <a href="/admin/posts/edit/{{_id}}"><button class="btn btn-success mt-3">Редактировать пост</button></a>
             <a href="/admin/posts/deletar/{{_id}}"><button class="btn btn-danger mt-3">Удалить пост</button></a>
         </div>

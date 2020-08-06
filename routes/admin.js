@@ -39,7 +39,7 @@ router.post("/categories/nova", (req,res) => {
     
     var erros = []
 
-    if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
+    if(!req.body.name || typeof req.body.name == undefined || req.body.name == null){
         erros.push({texto: "Неправильное имя" })
     }
 
@@ -48,7 +48,7 @@ router.post("/categories/nova", (req,res) => {
         erros.push({texto:"Недействительный slug"})
     }
 
-    if(req.body.nome.length < 2){
+    if(req.body.name.length < 2){
         erros.push({texto: "Название категории слишком маленькое"})
     }
 
@@ -58,7 +58,7 @@ router.post("/categories/nova", (req,res) => {
     else{
 
         const novaCategoria = {
-            nome: req.body.nome,
+            name: req.body.name,
             slug: req.body.slug
         }
 
@@ -87,7 +87,7 @@ router.get("/categories/edit/:id",eAdmin, (req,res) => {
 router.post("/categories/edit",eAdmin, (req, res) => {
     Category.findOne({_id: req.body.id})
     .then((category) => {
-        category.nome = req.body.nome
+        category.name = req.body.name
         category.slug = req.body.slug
 
         category.save().then(() => {
@@ -150,9 +150,9 @@ router.post("/posts/nova",eAdmin, (req,res) => {
     }
     else{
         const novaPostagem = {
-            titulo: req.body.titulo,
+            title: req.body.title,
             descricao:req.body.descricao,
-            conteudo:req.body.conteudo,
+            content:req.body.content,
             category: req.body.category,
             slug: req.body.slug
         }
@@ -188,10 +188,10 @@ router.get("/posts/edit/:id",eAdmin, (req,res) => {
 router.post("/posts/edit",eAdmin, (req,res) => {
     Post.findOne({_id:req.body.id})
     .then((post) => {
-        post.titulo = req.body.titulo
+        post.title = req.body.title
         post.slug = req.body.slug
-        post.descricao = req.body.conteudo
-        post.conteudo = req.body.conteudo
+        post.descricao = req.body.content
+        post.content = req.body.content
         post.category = req.body.category
 
         post.save()

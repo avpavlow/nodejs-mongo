@@ -7,18 +7,18 @@
         <h4>Редактировать сообщение: </h4>
         <form action="/admin/posts/edit" method="POST">
             <input type="hidden" name="id" value="{{post._id}}">
-            <label for="titulo">Имя:</label>
-            <input type="text" name="titulo" class="form-control"  value="{{post.titulo}}" required>
+            <label for="title">Имя:</label>
+            <input type="text" name="title" class="form-control"  value="{{post.title}}" required>
             <label for="slug">Slug:</label>
             <input type="text" name="slug"  class="form-control" value="{{post.slug}}" required>
             <label for="descricao">Описание: </label>
             <input type="text" name="descricao" class="form-control" value="{{post.descricao}}" required>
-            <label for="conteudo">Содержание: </label>
-            <textarea name="conteudo" class="form-control" required>{{post.conteudo}}</textarea>
+            <label for="content">Содержание: </label>
+            <textarea name="content" class="form-control" required>{{post.content}}</textarea>
             <label for="category">Категория: </label>
             <select name="category" class="custom-select">
             {{#each categories}}
-                <option value="{{_id}}">{{nome}}</option>
+                <option value="{{_id}}">{{name}}</option>
             {{else}}
                 <option value="0">Нет зарегистрированных категорий</option>
             {{/each}}
