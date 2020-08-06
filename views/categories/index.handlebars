@@ -1,6 +1,6 @@
 <h4>Категории: </h4>
 <hr>
 {{#each categories}}
-    <a href="/categories/{{slug}}"><h5>{{name}}</h5></a>
+    <a href="/categories/{{_doc.slug}}"><h5>{{_doc.name}}</h5></a>
 {{else}}
 {{/each}}

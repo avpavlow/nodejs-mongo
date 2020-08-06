@@ -8,17 +8,17 @@
         <form action="/admin/posts/edit" method="POST">
             <input type="hidden" name="id" value="{{post._id}}">
             <label for="title">Имя:</label>
-            <input type="text" name="title" class="form-control"  value="{{post.title}}" required>
+            <input type="text" name="title" class="form-control"  value="{{post._doc.title}}" required>
             <label for="slug">Slug:</label>
-            <input type="text" name="slug"  class="form-control" value="{{post.slug}}" required>
+            <input type="text" name="slug"  class="form-control" value="{{post._doc.slug}}" required>
             <label for="descricao">Описание: </label>
-            <input type="text" name="descricao" class="form-control" value="{{post.descricao}}" required>
+            <input type="text" name="descricao" class="form-control" value="{{post._doc.descricao}}" required>
             <label for="content">Содержание: </label>
-            <textarea name="content" class="form-control" required>{{post.content}}</textarea>
+            <textarea name="content" class="form-control" required>{{post._doc.content}}</textarea>
             <label for="category">Категория: </label>
             <select name="category" class="custom-select">
             {{#each categories}}
-                <option value="{{_id}}">{{name}}</option>
+                <option value="{{_doc._id}}">{{name}}</option>
             {{else}}
                 <option value="0">Нет зарегистрированных категорий</option>
             {{/each}}

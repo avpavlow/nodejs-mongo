@@ -1,9 +1,9 @@
 <div class="card">
     <div class="card-body">
         
-        <h1>{{post.title}}</h1>
+        <h1>{{post._doc.title}}</h1>
         <hr>    
-        <small>Дата публикации: {{post.data}}</small><br>
+        <small>Дата публикации: {{post._doc.data}}</small><br>
         <hr>
         {{post.content}}
     </div>
