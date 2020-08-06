@@ -12,7 +12,7 @@ require("./models/Post")
 const Post = mongoose.model("posts")
 require("./models/Category")
 const Category = mongoose.model("categories")
-const usuarios = require("./routes/usuario")
+const users = require("./routes/user")
 const passport = require("passport")
 const hbshelpers = require('handlebars-helpers');
 const multihelpers = hbshelpers();
@@ -130,7 +130,7 @@ require("./config/auth")(passport)
     })
 
     app.use('/admin', admin)
-    app.use("/usuarios",usuarios)
+    app.use("/users",users)
 //Outros
 const PORT = 8081
 app.listen(PORT, () => {

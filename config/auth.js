@@ -2,23 +2,23 @@ const localStrategy = require("passport-local").Strategy
 const mongoose = require("mongoose")
 const bcrypt = require("bcryptjs")
 
-//model de usuario
-require("../models/Usuario")
-const Usuario = mongoose.model("usuarios")
+//model de user
+require("../models/User")
+const User = mongoose.model("users")
 
 module.exports = function(passport){
 
     passport.use(new localStrategy({usernameField: 'email',passwordField:'senha'}, (email,senha,done) =>{
 
-        Usuario.findOne({email:email})
-        .then((usuario) => {
-            if(!usuario){
+        User.findOne({email:email})
+        .then((user) => {
+            if(!user){
                 return done(null,false, {message: "Этот аккаунт не существует"})
             }
 
-            bcrypt.compare(senha, usuario.senha,(erro,batem) => {
+            bcrypt.compare(senha, user.senha,(erro,batem) => {
                 if(batem){
-                    return done(null,usuario)
+                    return done(null,user)
                 }
                 else{
                     return done(null,false,{message: "Неверный пароль"})
@@ -27,13 +27,13 @@ module.exports = function(passport){
         })
     }))
 
-    passport.serializeUser((usuario,done) => {
-        done(null,usuario.id)
+    passport.serializeUser((user,done) => {
+        done(null,user.id)
     })
 
     passport.deserializeUser((id, done) => {
-        Usuario.findById(id,(err,usuario) => {
-            done(err,usuario)
+        User.findById(id,(err,user) => {
+            done(err,user)
         })
     })
 }

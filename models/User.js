@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const Usuario = new Schema({
+const User = new Schema({
     nome:{
         type: String,
         required:true
@@ -20,4 +20,4 @@ const Usuario = new Schema({
     }
 })
 
-mongoose.model("usuarios", Usuario)
+mongoose.model("users", User)
