@@ -6,11 +6,11 @@ const User = mongoose.model("users")
 const bcrypt = require("bcryptjs")
 const passport = require("passport")
 
-router.get("/registro", (req,res) => {
-    res.render("users/registro")
+router.get("/registration", (req,res) => {
+    res.render("users/registration")
 })
 
-router.post("/registro",(req,res) => {
+router.post("/registration",(req,res) => {
     var erros = []
     if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
         erros.push({texto: "Неправильное имя"})
@@ -31,7 +31,7 @@ router.post("/registro",(req,res) => {
     }
 
     if(erros.length > 0){
-        res.render("users/registro", {erros})
+        res.render("users/registration", {erros})
     }
     else{
         
@@ -40,7 +40,7 @@ router.post("/registro",(req,res) => {
             if(user)
             {
                 req.flash("error_msg","В нашей системе уже есть аккаунт с этим адресом электронной почты.")
-                res.redirect("/users/registro")
+                res.redirect("/users/registration")
             }
             else{
 
@@ -66,7 +66,7 @@ router.post("/registro",(req,res) => {
                         })
                         .catch((err) =>{
                             req.flash("error_msg", "При создании пользователя произошла ошибка, попробуйте еще раз")
-                            res.redirect("/users/registro")
+                            res.redirect("/users/registration")
                         })
                     })
                 })
