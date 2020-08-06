@@ -117,7 +117,7 @@ router.post("/category/deletar",isAdmin, (req,res) => {
 router.get("/posts",isAdmin, (req,res) => {
     Post.find().populate("category").sort({data:"desc"})
     .then((posts) => {
-        res.render("admin/posts",{posts})
+        res.render("admin/post",{posts})
     }).catch((err)  => {
         req.flash("error_msg", "При перечислении сообщений произошла ошибка")
         res.redirect("/admin")
@@ -127,7 +127,7 @@ router.get("/posts",isAdmin, (req,res) => {
 
 router.get("/posts/add",isAdmin, (req,res) => {
     Category.find().then((categories) => {
-        res.render("admin/addpostagem",{categories})
+        res.render("admin/addpost",{categories})
     })
     .catch((err) => {
         req.flash("errror_msg","При загрузке формы произошла ошибка")
@@ -144,12 +144,12 @@ router.post("/posts/nova",isAdmin, (req,res) => {
         errors.push({texto: "Неверная категория зарегистрируйте категорию"})
     }
     if(errors.length > 0){
-        res.render("admin/addpostagem",{errors})
+        res.render("admin/addpost",{errors})
     }
     else{
         const novaPostagem = {
             title: req.body.title,
-            descricao:req.body.descricao,
+            description:req.body.description,
             content:req.body.content,
             category: req.body.category,
             slug: req.body.slug
@@ -170,7 +170,7 @@ router.get("/posts/edit/:id",isAdmin, (req,res) => {
     Post.findOne({_id:req.params.id})
     .then((post) => {
         Category.find().then((categories) => {
-            res.render("admin/editposts",{categories,post})
+            res.render("admin/editpost",{categories,post})
         }).catch((err) => {
             req.flash("error_msg", "При перечислении категорий произошла ошибка")
             res.redirect("/admin/posts")
@@ -188,7 +188,7 @@ router.post("/posts/edit",isAdmin, (req,res) => {
     .then((post) => {
         post.title = req.body.title
         post.slug = req.body.slug
-        post.descricao = req.body.content
+        post.description = req.body.content
         post.content = req.body.content
         post.category = req.body.category
 

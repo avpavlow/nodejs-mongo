@@ -14,12 +14,12 @@
     <div class="card-body">
         
         
-        <h3>{{title}}</h3>
-        <p>{{descricao}}</p>
-        <a href="/post/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+        <h3>{{_doc.title}}</h3>
+        <p>{{_doc.description}}</p>
+        <a href="/post/{{_doc.slug}}"><button class="btn btn-success">Читать далее</button></a>
         <hr>
-        <small>Категория: {{category.name}}</small>
-        <small>Дата публикации поста: {{data}}</small>
+        <small>Категория: {{_doc.category.name}}</small>
+        <small>Дата публикации поста: {{_doc.data}}</small>
         
     </div>
 

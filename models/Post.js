@@ -10,7 +10,7 @@ const Post = new Schema({
         type: String,
         required: true
     },
-    descricao: {
+    description: {
         type: String,
         required: true
     },

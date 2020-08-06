@@ -9,14 +9,14 @@
             <input type="text" name="title" class="form-control" required>
             <label for="slug">Slug:</label>
             <input type="text" name="slug"  class="form-control" required>
-            <label for="descricao">Описание: </label>
-            <input type="text" name="descricao" class="form-control" required>
+            <label for="description">Описание: </label>
+            <input type="text" name="description" class="form-control" required>
             <label for="content">Содержание: </label>
             <textarea name="content" class="form-control" required></textarea>
             <label for="category">Категория: </label>
             <select name="category" class="custom-select">
             {{#each categories}}
-                <option value="{{_id}}">{{name}}</option>
+                <option value="{{_doc._id}}">{{_doc.name}}</option>
             {{else}}
                 <option value="0">Нет зарегистрированных категорий</option>
             {{/each}}
