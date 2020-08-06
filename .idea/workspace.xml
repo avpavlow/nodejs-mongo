@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49bbbbed-c3fa-46f4-bfdd-e4f321967a63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/eAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/eAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/_navbar.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/_navbar.handlebars" afterDir="false" />
+    <list default="true" id="49bbbbed-c3fa-46f4-bfdd-e4f321967a63" name="Default Changelist" comment="Переименованы поля">
+      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596702656220</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Переименованы поля">
+      <created>1596705235659</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1596705235659</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,13 +105,14 @@
     <MESSAGE value="Текст" />
     <MESSAGE value="Файлы" />
     <MESSAGE value="Описание" />
-    <option name="LAST_COMMIT_MESSAGE" value="Описание" />
+    <MESSAGE value="Переименованы поля" />
+    <option name="LAST_COMMIT_MESSAGE" value="Переименованы поля" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2" timestamp="1596702656125">
+    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2" timestamp="1596705416612">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
-    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2/0.0.1920.1054@0.0.1920.1054" timestamp="1596702656125" />
+    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2/0.0.1920.1054@0.0.1920.1054" timestamp="1596705416612" />
     <state x="181" y="87" width="1540" height="870" key="DiffContextDialog" timestamp="1596594234258">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
@@ -123,13 +129,13 @@
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
     <state x="446" y="160" key="SettingsEditor/0.0.1920.1054@0.0.1920.1054" timestamp="1596595115433" />
-    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1596702660401">
+    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1596705240271">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
-    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1054@0.0.1920.1054" timestamp="1596702660401" />
-    <state x="652" y="271" width="616" height="570" key="find.popup" timestamp="1596705125829">
+    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1054@0.0.1920.1054" timestamp="1596705240271" />
+    <state x="652" y="271" width="616" height="570" key="find.popup" timestamp="1596705212453">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
-    <state x="652" y="271" width="616" height="570" key="find.popup/0.0.1920.1054@0.0.1920.1054" timestamp="1596705125829" />
+    <state x="652" y="271" width="616" height="570" key="find.popup/0.0.1920.1054@0.0.1920.1054" timestamp="1596705212453" />
   </component>
 </project>

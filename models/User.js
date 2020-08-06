@@ -12,7 +12,7 @@ const User = new Schema({
     },
     eAdmin:{
         type: Number,
-        default: 0
+        default: 1
     },
     senha:{
         type:String,
