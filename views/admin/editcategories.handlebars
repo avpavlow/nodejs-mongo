@@ -3,17 +3,17 @@
 {{else}}
 
 {{/each}}
-<h2>Editar Category: </h2>
+<h2>Редактировать категорию: </h2>
 <div class="card">
     <div class="card-body">
         <form action="/admin/categories/edit" method="POST">
         <input type="hidden" name="id" value="{{category._doc._id}}" />
             <label for="name">Имя: </label>
-                <input type="text" id="name" name="name" placeholder="Nome da category" class="form-control" value="{{category._doc.name}}">
+                <input type="text" id="name" name="name" placeholder="Имя категории" class="form-control" value="{{category._doc.name}}">
             <label for="slug">Slug: </label>
-            <input type="text" id="slug" name="slug" placeholder="Slug da category" class="form-control" value="{{category._doc.slug}}">
+            <input type="text" id="slug" name="slug" placeholder="Slug" class="form-control" value="{{category._doc.slug}}">
             <br>
-            <button type="submit" class="btn btn-success">Редактирвоать категорию</button>
+            <button type="submit" class="btn btn-success">Редактировать категорию</button>
         </form>
     </div>
 </div>

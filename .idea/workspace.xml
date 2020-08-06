@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49bbbbed-c3fa-46f4-bfdd-e4f321967a63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/eAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/isAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/admin/editcategories.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/editcategories.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/_navbar.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/_navbar.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/users/login.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/login.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/users/registration.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/registration.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/post.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/post.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596705927141</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="редактирование шаблона">
+      <created>1596707957364</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1596707957365</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,13 +129,14 @@
     <MESSAGE value="Переименованы поля" />
     <MESSAGE value="По умолчанию все админы при регистрации" />
     <MESSAGE value="Описание" />
-    <option name="LAST_COMMIT_MESSAGE" value="Описание" />
+    <MESSAGE value="редактирование шаблона" />
+    <option name="LAST_COMMIT_MESSAGE" value="редактирование шаблона" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2" timestamp="1596705927083">
+    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2" timestamp="1596707957299">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
-    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2/0.0.1920.1054@0.0.1920.1054" timestamp="1596705927083" />
+    <state x="515" y="87" width="883" height="876" key="CommitChangelistDialog2/0.0.1920.1054@0.0.1920.1054" timestamp="1596707957299" />
     <state x="181" y="87" width="1540" height="870" key="DiffContextDialog" timestamp="1596594234258">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
@@ -154,10 +153,10 @@
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
     <state x="446" y="160" key="SettingsEditor/0.0.1920.1054@0.0.1920.1054" timestamp="1596595115433" />
-    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1596705931726">
+    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1596707961921">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
-    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1054@0.0.1920.1054" timestamp="1596705931726" />
+    <state x="555" y="263" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1054@0.0.1920.1054" timestamp="1596707961921" />
     <state x="1261" y="288" width="616" height="570" key="find.popup" timestamp="1596707117906">
       <screen x="0" y="0" width="1920" height="1054" />
     </state>
